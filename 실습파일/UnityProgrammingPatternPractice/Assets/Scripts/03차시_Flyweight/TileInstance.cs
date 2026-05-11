@@ -7,7 +7,10 @@ public readonly struct TileInstance
 
     public TileInstance(Vector2Int position, TerrainType terrain)
     {
-        Position = position;
+        // TODO 2: Store only extrinsic tile data here.
+        // Position is unique per tile.
+        // Terrain should be a reference to a shared TerrainType object.
+        Position = Vector2Int.zero;
         Terrain = terrain;
     }
 }

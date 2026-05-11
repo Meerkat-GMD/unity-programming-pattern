@@ -60,6 +60,9 @@ public sealed class PlayerInputReader : MonoBehaviour
         }
 
         Vector2Int destination = unit.GridPosition + direction;
-        return new MoveUnitCommand(unit, destination);
+
+        // TODO 11: Do not call unit.MoveTo(destination) directly here.
+        // Create and return a MoveUnitCommand instead.
+        return null;
     }
 }

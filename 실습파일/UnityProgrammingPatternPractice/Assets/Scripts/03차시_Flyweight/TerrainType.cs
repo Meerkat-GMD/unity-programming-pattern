@@ -9,9 +9,11 @@ public sealed class TerrainType
 
     public TerrainType(string name, int movementCost, bool isWater, Color color)
     {
-        Name = name;
-        MovementCost = movementCost;
-        IsWater = isWater;
-        Color = color;
+        // TODO 1: Store terrain data in this shared flyweight object.
+        // Assign all constructor parameters to the matching properties.
+        Name = "TODO";
+        MovementCost = 0;
+        IsWater = false;
+        Color = Color.magenta;
     }
 }

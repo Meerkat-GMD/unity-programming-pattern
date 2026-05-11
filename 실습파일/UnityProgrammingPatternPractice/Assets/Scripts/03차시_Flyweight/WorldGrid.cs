@@ -25,7 +25,10 @@ public sealed class WorldGrid
         {
             for (int y = 0; y < height; y++)
             {
-                TerrainType terrain = Random.value < 0.15f ? hill : grass;
+                // TODO 5: Choose a shared TerrainType reference for this tile.
+                // Do not create a new TerrainType inside this loop.
+                // Example idea: mostly grass, sometimes hill.
+                TerrainType terrain = grass;
                 tiles[x, y] = new TileInstance(new Vector2Int(x, y), terrain);
             }
         }
@@ -33,7 +36,8 @@ public sealed class WorldGrid
         int riverX = Random.Range(0, width);
         for (int y = 0; y < height; y++)
         {
-            tiles[riverX, y] = new TileInstance(new Vector2Int(riverX, y), river);
+            // TODO 6: Replace one column with river tiles that share the river object.
+            tiles[riverX, y] = new TileInstance(new Vector2Int(riverX, y), grass);
         }
     }
 
@@ -49,8 +53,14 @@ public sealed class WorldGrid
 
     private void CreateTerrainTypes()
     {
+        // TODO 3: Create one shared instance for each terrain type.
+        // These objects contain intrinsic data shared by many tiles.
         grass = new TerrainType("Grass", 1, false, new Color(0.34f, 0.75f, 0.31f));
-        hill = new TerrainType("Hill", 3, false, new Color(0.55f, 0.48f, 0.34f));
-        river = new TerrainType("River", 2, true, new Color(0.20f, 0.50f, 0.95f));
+
+        // TODO 4: Create hill and river shared instances.
+        // hill should be slower than grass.
+        // river should have IsWater set to true.
+        hill = grass;
+        river = grass;
     }
 }

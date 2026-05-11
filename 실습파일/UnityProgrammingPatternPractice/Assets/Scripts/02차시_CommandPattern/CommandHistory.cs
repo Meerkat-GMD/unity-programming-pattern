@@ -18,37 +18,28 @@ public sealed class CommandHistory : MonoBehaviour
             return;
         }
 
-        int redoCount = commands.Count - currentIndex - 1;
-        if (redoCount > 0)
-        {
-            commands.RemoveRange(currentIndex + 1, redoCount);
-        }
+        // TODO 4: If there are redo commands after currentIndex, remove them.
+        // Hint:
+        // int redoCount = commands.Count - currentIndex - 1;
+        // commands.RemoveRange(currentIndex + 1, redoCount);
 
-        commands.Add(command);
-        currentIndex++;
-        command.Execute();
+        // TODO 5: Add the new command to commands and increase currentIndex.
+
+        // TODO 6: Execute the command.
     }
 
     public void Undo()
     {
-        if (!CanUndo)
-        {
-            return;
-        }
+        // TODO 7: If there is no command to undo, return.
 
-        commands[currentIndex].Undo();
-        currentIndex--;
+        // TODO 8: Undo the current command, then decrease currentIndex.
     }
 
     public void Redo()
     {
-        if (!CanRedo)
-        {
-            return;
-        }
+        // TODO 9: If there is no command to redo, return.
 
-        currentIndex++;
-        commands[currentIndex].Execute();
+        // TODO 10: Increase currentIndex, then execute that command again.
     }
 
     public void Clear()

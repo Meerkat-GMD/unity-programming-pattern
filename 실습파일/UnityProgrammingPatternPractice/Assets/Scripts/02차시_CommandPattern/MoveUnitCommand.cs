@@ -14,12 +14,15 @@ public sealed class MoveUnitCommand : IUndoableCommand
 
     public void Execute()
     {
-        before = unit.GridPosition;
-        unit.MoveTo(destination);
+        // TODO 1: Move before changing position.
+        // Save the current position into the before field.
+
+        // TODO 2: Move the unit to destination.
+        // Hint: call unit.MoveTo(destination).
     }
 
     public void Undo()
     {
-        unit.MoveTo(before);
+        // TODO 3: Move the unit back to the saved before position.
     }
 }
