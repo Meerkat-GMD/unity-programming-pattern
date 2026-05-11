@@ -14,12 +14,12 @@ public sealed class MoveUnitCommand : IUndoableCommand
 
     public void Execute()
     {
-        // TODO 1: 이동하기 전에 unit.GridPosition을 before에 저장하세요.
-        // TODO 2: unit.MoveTo(destination)을 호출하세요.
+        before = unit.GridPosition;
+        unit.MoveTo(destination);
     }
 
     public void Undo()
     {
-        // TODO 3: unit.MoveTo(before)을 호출해 이전 좌표로 되돌리세요.
+        unit.MoveTo(before);
     }
 }

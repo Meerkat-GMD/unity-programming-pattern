@@ -60,9 +60,6 @@ public sealed class PlayerInputReader : MonoBehaviour
         }
 
         Vector2Int destination = unit.GridPosition + direction;
-
-        // TODO 11: unit.MoveTo(destination)을 직접 호출하지 마세요.
-        // 대신 MoveUnitCommand를 만들어 반환하세요.
-        return null;
+        return new MoveUnitCommand(unit, destination);
     }
 }

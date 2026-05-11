@@ -18,26 +18,37 @@ public sealed class CommandHistory : MonoBehaviour
             return;
         }
 
-        // TODO 4: Undo 후 남아 있는 Redo 후보를 삭제하세요.
-        // 힌트: currentIndex + 1부터 commands.Count - currentIndex - 1개를 지웁니다.
+        int redoCount = commands.Count - currentIndex - 1;
+        if (redoCount > 0)
+        {
+            commands.RemoveRange(currentIndex + 1, redoCount);
+        }
 
-        // TODO 5: command를 commands에 추가하고 currentIndex를 증가시키세요.
-
-        // TODO 6: command.Execute()를 호출하세요.
+        commands.Add(command);
+        currentIndex++;
+        command.Execute();
     }
 
     public void Undo()
     {
-        // TODO 7: 되돌릴 명령이 없으면 return 하세요.
+        if (!CanUndo)
+        {
+            return;
+        }
 
-        // TODO 8: 현재 명령의 Undo()를 호출하고 currentIndex를 1 줄이세요.
+        commands[currentIndex].Undo();
+        currentIndex--;
     }
 
     public void Redo()
     {
-        // TODO 9: 다시 실행할 명령이 없으면 return 하세요.
+        if (!CanRedo)
+        {
+            return;
+        }
 
-        // TODO 10: currentIndex를 1 늘리고 해당 명령의 Execute()를 호출하세요.
+        currentIndex++;
+        commands[currentIndex].Execute();
     }
 
     public void Clear()
