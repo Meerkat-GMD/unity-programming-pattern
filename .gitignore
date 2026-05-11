@@ -1,0 +1,20 @@
+미리보기/
+*.tmp
+*.log
+
+# Unity generated files
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Oo]bj/
+**/[Bb]uild/
+**/[Bb]uilds/
+**/[Ll]ogs/
+**/[Uu]ser[Ss]ettings/
+**/*.csproj
+**/*.sln
+**/*.user
+**/.vs/
+**/.idea/
+**/.vscode/
+
+~$*
